@@ -1,0 +1,22 @@
+{
+  "name": "mern_proshop",
+  "version": "1.0.0",
+  "description": "Mern ProShop",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuyen85qn/ProShop.git"
+  },
+  "author": "PROSHOP",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tuyen85qn/ProShop/issues"
+  },
+  "homepage": "https://github.com/tuyen85qn/ProShop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

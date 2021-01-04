@@ -5,21 +5,24 @@ import {Link} from 'react-router-dom';
 import {addToCart, removeFromCart} from '../actions/cartActions';
 import Message from '../components/Message'
 
-const CartScreen = ({match, location}) => {
+const CartScreen = ({match, location, history}) => {
     const dispatch = useDispatch();
+    const productId = match.params.id;
     const qty = location.search ?  Number(location.search.split('=')[1]) : 1;
     const cart = useSelector(state => state.cart);
-    const {cartItems} = cart;
-
+    const {cartItems} = cart;    
     useEffect(() => {
-        dispatch(addToCart(match.params.id, qty))
-    }, [dispatch, match.params.id, qty]); 
+      if(productId)
+      {
+        dispatch(addToCart(productId, qty))
+      }       
+    }, [dispatch, productId, qty]); 
 
     const removeFromCartHander =  (id) =>{
        dispatch(removeFromCart(id))
     }
     const checkoutHandler = () => {
-      console.log('checkout');
+        history.push('/login?redirect=shipping')
     }
 
     return (

@@ -33,15 +33,15 @@ const PlaceOrderScreen = ({history}) => {
       ).toFixed(2)
     
       const orderCreate = useSelector((state) => state.orderCreate);
-      const { order, success, error } = orderCreate;    
+      const { order, success, error } = orderCreate;        
 
       // eslint-disable-next-line
       useEffect(()=>{
-        if(success)
+        if(order && success)
         {
           history.push(`/order/${order._id}`);
         }
-      },[history, success, order._id])
+      },[history, order, success])
 
       const placeOrderHandler = () => {
         dispatch(
